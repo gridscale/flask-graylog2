@@ -63,7 +63,7 @@ class Graylog(logging.Logger):
         self.config.setdefault('GRAYLOG_CONFIGURE_MIDDLEWARE', True)
 
         # Configure the logging handler and attach to this logger
-        self.handler = graypy.GELFHandler(
+        self.handler = graypy.GELFUDPHandler(
             host=self.config['GRAYLOG_HOST'],
             port=self.config['GRAYLOG_PORT'],
             facility=self.config['GRAYLOG_FACILITY'],
