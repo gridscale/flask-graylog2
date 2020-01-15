@@ -25,7 +25,7 @@ You only need to import and initialize your app
 
     # Import dependencies
     from flask import Flask
-    from flask.ext.graylog import Graylog
+    from flask_graylog import Graylog
 
     # Configure app and Graylog logger
     app = Flask(__name__)
@@ -51,7 +51,7 @@ The following options can be use to configure the graylog logger.
 .. code:: python
 
     from flask import Flask
-    from flask.ext.graylog import Graylog
+    from flask_graylog import Graylog
 
     app = Flask(__name__)
 
