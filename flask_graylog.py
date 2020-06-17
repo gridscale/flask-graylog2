@@ -148,7 +148,7 @@ class Graylog(logging.Logger):
         }
 
         message = 'Finishing request for "%s %s" from %s' % (request.method, request.url, extra.get("remote_addr", "-"))
-        self.info(message, extra=extra)
+        self.info(message)
 
         # Always return the response
         return response
