@@ -1,5 +1,7 @@
 # Flask-Graylog2
 
+[![PyPI version](https://badge.fury.io/py/Flask-Graylog2.svg)](https://badge.fury.io/py/Flask-Graylog2)
+
 Fork of [github.com/underdogio/flask-graylog](https://github.com/underdogio/flask-graylog) with additional patches and features.
 
 This is a Flask extension that allows you to configure a Graylog GELF UDP logging handler as well as some middleware to log every request/response pair to Graylog.
