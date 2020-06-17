@@ -1,3 +1,7 @@
+2020-06-16 v1.2.1
+
+	* Bug fix: do not set extra record fields twice in middleware
+
 2020-06-16 v1.2.0
 
 	* Upload new package to https://pypi.org/project/Flask-Graylog2/
