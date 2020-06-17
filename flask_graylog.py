@@ -85,6 +85,19 @@ class Graylog(logging.Logger):
         if extra is not None:
             self._static_extra = extra
 
+            # Register custom log record factory to get those extra arguments
+            # into records
+            old_factory = logging.getLogRecordFactory()
+
+            def record_factory(*args, **kwargs):
+                record = old_factory(*args, **kwargs)
+                for name, val, in self._static_extra.items():
+                    setattr(record, name, val)
+                return record
+
+            logging.setLogRecordFactory(record_factory)
+
+
     def setup_middleware(self):
         """Configure middleware to log each response"""
         self.app.before_request(self.before_request)
