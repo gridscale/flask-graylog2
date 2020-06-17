@@ -2,7 +2,7 @@
 
 Fork of [github.com/underdogio/flask-graylog](https://github.com/underdogio/flask-graylog) with additional patches and features.
 
-This is a Flask_extension that allows you to configure a Graylog GELF UDP logging handler as well as configuring middleware to log every request/response pair to Graylog.
+This is a Flask extension that allows you to configure a Graylog GELF UDP logging handler as well as some middleware to log every request/response pair to Graylog.
 
 See also:
 

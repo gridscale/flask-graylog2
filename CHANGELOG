@@ -1,3 +1,10 @@
+2020-06-16 v1.2.0
+
+	* Upload new package to https://pypi.org/project/Flask-Graylog2/
+	* Use flit for packaging
+	* Include some bug fixes from Vitor Lobo <lobocode@gmail.com>
+	* Register custom log error factory and allow setting additional Graylog fields
+
 2017-07-13 v1.1.2
 
 	* Update project for newest pypi.org API
