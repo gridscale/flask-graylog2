@@ -8,7 +8,7 @@ import graypy
 class Graylog(logging.Logger):
     __slots__ = ['app', 'config', 'handler']
 
-    def __init__(self, app=None, config=None, level=logging.NOTSET):
+    def __init__(self, app=None, config=None, level=logging.NOTSET, extra=None):
         """
         Constructor for flask.ext.graylog.Graylog
 
@@ -17,7 +17,9 @@ class Graylog(logging.Logger):
         :param config: Configuration to use instead of `app.config`
         :type config: `dict` or `None`
         :param level: The logging level to set for this handler
-        :type level: `int`
+        :type level: `int` or `str`
+        :param extra: Additional Graylog fields included in messages
+        :type extra: `dict` or `None`
         """
         super(Graylog, self).__init__(__name__, level=level)
 
@@ -26,9 +28,9 @@ class Graylog(logging.Logger):
 
         # If we have an app, then call `init_app` automatically
         if app is not None:
-            self.init_app(app, self.config)
+            self.init_app(app, self.config, extra)
 
-    def init_app(self, app, config=None):
+    def init_app(self, app, config=None, extra=None):
         """
         Configure Graylog logger from a Flask application
 
@@ -45,6 +47,8 @@ class Graylog(logging.Logger):
         :type app: flask.Flask
         :param config: An override config to use instead of `app.config`
         :type config: `dict` or `None`
+        :param extra: Additional Graylog fields included in messages
+        :type extra: `dict` or `None`
         """
         # Use the config they provided
         if config is not None:
@@ -75,6 +79,11 @@ class Graylog(logging.Logger):
         # Setup middleware if they asked for it
         if self.config['GRAYLOG_CONFIGURE_MIDDLEWARE']:
             self.setup_middleware()
+
+        # Additional Graylog fields
+        self._static_extra = {}
+        if extra is not None:
+            self._static_extra = extra
 
     def setup_middleware(self):
         """Configure middleware to log each response"""
@@ -122,6 +131,7 @@ class Graylog(logging.Logger):
                     if key.startswith('HTTP_') and key.lower() not in ('http_cookie', )
                 )
             },
+            **self._static_extra
         }
 
         message = 'Finishing request for "%s %s" from %s' % (request.method, request.url, extra.get('remote_addr', '-'))
