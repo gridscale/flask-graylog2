@@ -1,5 +1,6 @@
 black
 Flask
+flit
 graypy
 pylint
 rope

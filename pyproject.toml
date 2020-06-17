@@ -1,0 +1,14 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+dist-name = "Flask-Graylog2"
+module = "flask_graylog"
+author = "gridscale GmbH"
+author-email = "team@gridscale.io"
+home-page = "https://github.com/gridscale/flask-graylog2"
+classifiers = ["License :: OSI Approved :: MIT License"]
+requires = ["Flask", "graypy"]
+maintainer = "Benjamin Kircher"
+maintainer-email = "bkircher@gridscale.io"

@@ -1,8 +1,14 @@
+"""Configure Graylog logging handlers and middleware for your Flask app.
+"""
+
 import logging
 import time
 
 from flask import g, request
 import graypy
+
+
+__version__ = "1.2.0"
 
 
 class Graylog(logging.Logger):
