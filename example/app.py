@@ -1,15 +1,15 @@
 from flask import Flask
-from flask.ext.graylog import Graylog
+from flask_graylog import Graylog
 
 app = Flask(__name__)
 graylog = Graylog(app)
 
 
-@app.route('/')
+@app.route("/")
 def root():
-    return 'thanks'
+    return "thanks"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.debug = True
     app.run()
