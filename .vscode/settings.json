@@ -1,0 +1,14 @@
+{
+    "python.pythonPath": ".venv/bin/python3",
+    "python.terminal.activateEnvironment": false,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "130",
+        "--target-version",
+        "py38"
+    ],
+    "editor.rulers": [
+        130
+    ]
+}
