@@ -144,11 +144,10 @@ class Graylog(logging.Logger):
                     if key.startswith("HTTP_") and key.lower() not in ("http_cookie",)
                 ),
             },
-            **self._static_extra,
         }
 
         message = 'Finishing request for "%s %s" from %s' % (request.method, request.url, extra.get("remote_addr", "-"))
-        self.info(message)
+        self.info(message, extra=extra)
 
         # Always return the response
         return response
