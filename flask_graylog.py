@@ -8,7 +8,7 @@ from flask import g, request
 import graypy
 
 
-__version__ = "1.2.1"
+__version__ = "1.2.2"
 
 
 class Graylog(logging.Logger):
